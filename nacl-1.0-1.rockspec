@@ -2,7 +2,7 @@ package = "nacl"
 version = "1.0-1"
 
 source = {
-  url = "..."
+  url = "https://github.com/kext/lua-nacl/"
 }
 
 dependencies = {
