@@ -10,7 +10,7 @@ extern void randombytes(u8*, u64);
 
 #define FOR(i, n) for (i = 0; i < n; ++i)
 
-static u8* lua_fixedlstring(lua_State *L, int index, int len, i8 *error)
+static u8 *lua_fixedlstring(lua_State *L, int index, int len, i8 *error)
 {
   if (!lua_isstring(L, index) || lua_rawlen(L, index) != len)
   {
@@ -20,14 +20,18 @@ static u8* lua_fixedlstring(lua_State *L, int index, int len, i8 *error)
   return (u8*)lua_tostring(L, index);
 }
 
-static u8* lua_minlstring(lua_State *L, int index, int len, u64 *l, i8 *error)
+static u8 *lua_minlstring(lua_State *L, int index, int len, u64 *l, i8 *error)
 {
+  u8 *res;
+  size_t slen;
   if (!lua_isstring(L, index) || lua_rawlen(L, index) < len)
   {
     lua_pushfstring(L, error, len);
     lua_error(L);
   }
-  return (u8*)lua_tolstring(L, index, (size_t*)l);
+  res = (u8*)lua_tolstring(L, index, &slen);
+  *l = slen;
+  return r;
 }
 
 static u8 *alloc_str(lua_State *L, u64 l)
