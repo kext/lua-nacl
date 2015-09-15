@@ -31,7 +31,7 @@ static u8 *lua_minlstring(lua_State *L, int index, int len, u64 *l, i8 *error)
   }
   res = (u8*)lua_tolstring(L, index, &slen);
   *l = slen;
-  return r;
+  return res;
 }
 
 static u8 *alloc_str(lua_State *L, u64 l)
