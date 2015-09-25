@@ -1,5 +1,5 @@
 #include <lua.h>
-#include "nacl.h"
+#include "tweetnacl.h"
 
 typedef unsigned char u8;
 typedef char i8;
