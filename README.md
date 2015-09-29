@@ -119,7 +119,7 @@ This function checks if `a` is a correct authenticator of a message `m` under th
 
 The `nacl.hash` function hashes a message `m`. It returns `a` hash `h`. The output length `#h` is always `nacl.hash_BYTES`.
 
-## Auxilliary functions
+## Auxiliary functions
 
 ### nacl.randombytes(l)
 
